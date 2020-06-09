@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget App</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="container_full">
+      <div class="container">
+        <div class="budget-app">
+          <div class="headline">
+            <h1>Budget App</h1>
+          </div>
+
+          <div class="content-left floatleft">
+            <div class="enter-budget-box">
+              <label for="budget">Please Enter Your Budget</label><br />
+              <input type="text" id="budget" /><br />
+              <label for="currency">Select Currency</label> 
+              <select name="" id="currency">
+                <option value="" disabled selected> ----- </option>
+                <option value="৳">৳</option>                
+                <option value="€">€</option>
+                <option value="$">$</option>
+                <option value="¥">¥</option>
+                <option value="﷼">﷼</option>
+              </select><br>
+              <button id="add-budget-btn">Start</button>
+              <button id="reset-app-btn">Reset</button>
+            </div>
+            <div class="add-expense-box">
+              <label for="expense">Please Enter Your Expense Title</label><br />
+              <input type="text" placeholder="(e.g Pen)" id="expense-title" /><br />
+              <label for="expense-amount">Please Enter Expense Amount</label
+              ><br />
+              <input type="text" id="expense-amount" /><br />
+              <button id="add-expense-btn">Add Expense</button>
+            </div>
+          </div>
+          <div class="content-right floatright">
+            <div class="balances">
+                <div class="budget items">
+                    <p>Budget</p>
+                    <div class="logo">
+                        <img src="img/budget.png" alt="">
+                    </div>
+                    <div class="budget-amount"><span id="currency-symbol">$</span> <span id="budget-amount">0</span></div>
+                </div>
+                <div class="expenses items">
+                    <p>Expenses</p>
+                    <div class="logo">
+                        <img src="img/expense.png" alt="">
+                    </div>
+                    <div class="expenses-amount"><span id="currency-symbol">$</span> <span id="expenses-amount">0</span></div>
+                </div>
+                <div class="balance items">
+                    <p>Balance</p>
+                    <div class="logo">
+                        <img src="img/doller.png" alt="">
+                    </div>                    
+                    <div class="balance-amount"><span id="currency-symbol">$</span> <span id="balance-amount">0</span></div>
+                </div>
+            </div>
+            <div class="expenses">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Expense Title</td>
+                                <td>Expense Amount</td>                            
+                                <td>Delete</td>                            
+                            </tr>                        
+                        </thead>                        
+                    </table> 
+                    <div id="expense-list"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
