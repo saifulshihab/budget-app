@@ -23,24 +23,28 @@ class expenseItem {
   parentList = [];
   constructor(pL) {
     this.parentList = pL;
-    console.log(this.parentList);
+    this.updateBalances();
     this.renderExpensesItem(this.parentList);
   }
-  deleteExpenseItem(eid) {
-    console.log(eid.toString());
-    console.log(this.parentList);
-    let itemIndex = 0;
-    const bal = new Balances();
+  updateBalances() {
+    let expenseAmount = 0;
     for (const item of this.parentList) {
-      console.log(item.id);
+      expenseAmount += +item.amount;
+    }
+    const balObj = new Balances();
+    balObj.updateExpenseBalance(expenseAmount);
+  }
+  deleteExpenseItem(eid) {
+    let itemIndex = 0;
+    const balObj = new Balances();
+    for (const item of this.parentList) {
       if (item.id == eid) {
-        bal.deleteExpense(item.amount);
+        balObj.deleteExpense(item.amount);
         break;
       }
       itemIndex++;
     }
     this.parentList.splice(itemIndex, 1);
-    console.log(this.parentList);
     this.renderExpensesItem(this.parentList);
   }
   renderExpensesItem(expenseList) {
@@ -134,11 +138,10 @@ class App {
         title: expenseTitle.value,
         amount: expenseAmount.value,
       };
-      expAmount += +expenseAmount.value;
-      const bal = new Balances();
-      bal.expense = +expAmount;
-      const balUp = new Balances();
-      balUp.updateExpenseBalance(expAmount);
+      // expAmount += +expenseAmount.value;
+      // console.log(expAmount);
+      // const balObj = new Balances();
+      // balObj.updateExpenseBalance(expAmount);
       expenseTitle.value = "";
       expenseAmount.value = "";
       expenseList.push(newexpenseItem);
