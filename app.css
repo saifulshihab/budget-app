@@ -167,6 +167,8 @@ input:focus {
 }
 .expenses table {
   text-align: center;
+  border: 1px solid #ddd;
+  padding: 5px 0;
 }
 .expenses table td {
   /* padding: 20px 50px; */
